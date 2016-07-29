@@ -373,6 +373,9 @@ static int check_midi_event (unsigned char *midi_data, unsigned long int midi_si
                     case 101:
                         printf("Registered Param Course: ");
                         break;
+                    case 111:
+                        printf("RPG Maker Loop Start: ");
+                        break;
                     case 120:
                         printf("Channel Sound Off: ");
                         break;
