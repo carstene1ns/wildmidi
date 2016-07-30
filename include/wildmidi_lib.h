@@ -50,6 +50,9 @@
 /* for WildMidi_GetString */
 #define WM_GS_VERSION           0x0001
 
+/* for detecting the Loop Point hack */
+#define WM_EASYRPG_PATCHED      1
+
 /* set our symbol export visiblity */
 #if defined _WIN32 || defined __CYGWIN__
   /* ========== NOTE TO WINDOWS DEVELOPERS:
@@ -90,6 +93,7 @@ struct _WM_Info {
     char *copyright;
     uint32_t current_sample;
     uint32_t approx_total_samples;
+    uint32_t looppoint_samplepos;
     uint16_t mixer_options;
     uint32_t total_midi_time;
 };

@@ -2031,6 +2031,7 @@ WildMidi_GetInfo(midi * handle) {
     }
     mdi->tmp_info->current_sample = mdi->extra_info.current_sample;
     mdi->tmp_info->approx_total_samples = mdi->extra_info.approx_total_samples;
+    mdi->tmp_info->looppoint_samplepos = mdi->extra_info.looppoint_samplepos;
     mdi->tmp_info->mixer_options = mdi->extra_info.mixer_options;
     mdi->tmp_info->total_midi_time = (mdi->tmp_info->approx_total_samples * 1000) / _WM_SampleRate;
     if (mdi->extra_info.copyright) {

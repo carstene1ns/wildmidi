@@ -973,6 +973,20 @@ void _WM_do_control_registered_param_course(struct _mdi *mdi,
     mdi->channel[ch].reg_non = 0;
 }
 
+void _WM_do_control_set_loop_start(struct _mdi *mdi,
+                                   struct _event_data *data) {
+#ifdef DEBUG_MIDI
+    uint8_t ch = data->channel;
+    MIDI_EVENT_DEBUG(__FUNCTION__, ch, data->data.value);
+#else
+    UNUSED(data);
+#endif
+
+    if (!mdi->extra_info.looppoint_samplepos) {
+        mdi->extra_info.looppoint_samplepos = mdi->extra_info.current_sample;
+    }
+}
+
 void _WM_do_control_channel_sound_off(struct _mdi *mdi,
                                       struct _event_data *data) {
     struct _note *note_data = mdi->note;
@@ -1562,6 +1576,9 @@ static int midi_setup_control(struct _mdi *mdi, uint8_t channel,
             break;
         case 101:
             tmp_event = *_WM_do_control_registered_param_course;
+            break;
+        case 111:
+            tmp_event = *_WM_do_control_set_loop_start;
             break;
         case 120:
             tmp_event = *_WM_do_control_channel_sound_off;

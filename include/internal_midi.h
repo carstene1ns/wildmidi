@@ -141,6 +141,7 @@ extern void _WM_do_control_non_registered_param_fine(struct _mdi *mdi, struct _e
 extern void _WM_do_control_non_registered_param_course(struct _mdi *mdi, struct _event_data *data);
 extern void _WM_do_control_registered_param_fine(struct _mdi *mdi, struct _event_data *data);
 extern void _WM_do_control_registered_param_course(struct _mdi *mdi, struct _event_data *data);
+extern void _WM_do_control_set_loop_start(struct _mdi *mdi, struct _event_data *data);
 extern void _WM_do_control_channel_sound_off(struct _mdi *mdi, struct _event_data *data);
 extern void _WM_do_control_channel_controllers_off(struct _mdi *mdi, struct _event_data *data);
 extern void _WM_do_control_channel_notes_off(struct _mdi *mdi, struct _event_data *data);
